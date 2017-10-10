@@ -4,8 +4,8 @@
     <title>One Picture</title>
   </head>
   <body>
-    <%= link_to("Back to Pictures", "/pictures") %>
-    <p><%= @picture.title %>, <%= @picture.artist %></p>
+    <%= link_to("Back to Pictures", "/pictures") %> | <%= link_to("Edit", "/pictures/#{@picture.id}/edit") %><br>
+    <%= @picture.title %>, <%= @picture.artist %></p>
     <img src="<%= @picture.url %>"
   </body>
 </html>
