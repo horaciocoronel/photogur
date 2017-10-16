@@ -17,6 +17,11 @@
       <% end %>
     </ul>
   </aside>
-
+  <h3>Last year pictures</h3>
+<ul>
+  <% Picture.pictures_created_in_year(2017).each do |picture| %>
+    <li><%= picture.title %></li>
+  <% end %>
+</ul>
   </body>
 </html>
