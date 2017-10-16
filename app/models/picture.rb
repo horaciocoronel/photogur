@@ -1,5 +1,7 @@
 class Picture < ApplicationRecord
 
+  validates :artist, :title, :url, presence: true
+
   def self.one_month_ago
     Picture.where(("created_at < ?"), 1.month.ago).limit(5)
   end

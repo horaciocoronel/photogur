@@ -8,9 +8,7 @@ class PicturesController < ApplicationController
       @pictures_from_year = Picture.where("cast(strftime('%Y', created_at) as int) = ?", year)
     else
       render :index
-
     end
-
   end
   def show
     @picture = Picture.find(params[:id])
