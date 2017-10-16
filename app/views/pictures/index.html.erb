@@ -23,5 +23,13 @@
     <li><%= picture.title %></li>
   <% end %>
 </ul>
+  <% if params[:year] != nil %>
+  <h4> Pictures from <%= @year %></h4>
+  <p>
+    <% @pictures_from_year.each do |picture| %>
+      <li><%= picture.title %></li>
+    <% end %>
+  <% end %>
+  </p>
   </body>
 </html>

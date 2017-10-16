@@ -2,6 +2,15 @@ class PicturesController < ApplicationController
   def index
     @pictures = Picture.all
     @one_month_ago = Picture.one_month_ago
+    @year = params[:year]
+    if params[:year] == params[:year]
+      year = params[:year]
+      @pictures_from_year = Picture.where("cast(strftime('%Y', created_at) as int) = ?", year)
+    else
+      render :index
+
+    end
+
   end
   def show
     @picture = Picture.find(params[:id])
