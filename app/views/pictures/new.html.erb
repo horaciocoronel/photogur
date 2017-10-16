@@ -30,8 +30,10 @@
     <h2><%= pluralize(@picture.errors.count, "error") %> prohibited this Picture from being saved:</h2>
 
     <ul>
-    <% @picture.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
+    <% @picture.errors.values.each do |msg| %>
+       <% msg.each do  |m| %>
+      <li><%= m %></li>
+    <% end %>
     <% end %>
     </ul>
   </div>

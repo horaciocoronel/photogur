@@ -1,9 +1,9 @@
 class Picture < ApplicationRecord
 
-  validates :artist, :title, :url, presence: true
-  validates :title, length: { in: 3..20 }
-  validates :url, uniqueness: true
-  validates_format_of :url, :with => URI::regexp(%w(http https))
+  validates :artist, :title, :url, presence: { message: "Avast scallywag! Don't be a squiffy! Complete the fields! Yo-ho-ho %{attribute}" }
+  validates :title, length: { in: 3..20, message: "Ahoy matey! You be a Landlubber! Don't be a great grand Son of a Biscuit Eater. Title should be 3 Doubloons minimum! Scurvy dog! "}
+  validates :url, uniqueness: { message: "Shiver me timbers! I already have thar url! Walk the plank!"}
+  validates_format_of :url, :with => URI::regexp(%w(http https)), message: "Enough! Walk the plank!"
 
   def self.one_month_ago
     Picture.where(("created_at < ?"), 1.month.ago).limit(5)
