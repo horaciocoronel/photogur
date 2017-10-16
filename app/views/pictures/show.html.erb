@@ -4,7 +4,7 @@
     <title>One Picture</title>
   </head>
   <body>
-    <%= link_to("Back to Pictures", "/pictures") %> | <%= link_to("Edit", "/pictures/#{@picture.id}/edit") %> | <%= link_to("Delete", "/pictures/#{@picture_id}", method: :delete, data: {confirm: "Are you sure you want to delete this picture?"}) %><br>
+    <%= link_to("Back to Pictures", "/pictures") %> | <%= link_to("Edit", "/pictures/#{@picture.id}/edit") %> | <%= link_to("Delete", "/pictures/#{@picture.id}", method: :delete, data: {confirm: "Are you sure you want to delete this picture?"}) %><br>
     <%= @picture.title %>, <%= @picture.artist %></p>
     <img src="<%= @picture.url %>"
   </body>

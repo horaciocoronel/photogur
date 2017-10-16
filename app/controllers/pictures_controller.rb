@@ -1,6 +1,7 @@
 class PicturesController < ApplicationController
   def index
     @pictures = Picture.all
+    @one_month_ago = Picture.one_month_ago
   end
   def show
     @picture = Picture.find(params[:id])
