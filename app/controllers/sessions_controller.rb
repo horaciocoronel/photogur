@@ -11,13 +11,10 @@ class SessionsController < ApplicationController
     else
       render :new
     end
-
-
   end
 
-  def destory
+  def destroy
     session[:user_id] = nil
-
     redirect_to root_url
   end
 end
