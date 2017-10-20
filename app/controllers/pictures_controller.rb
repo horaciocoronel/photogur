@@ -10,12 +10,15 @@ class PicturesController < ApplicationController
       render :index
     end
   end
+
   def show
     @picture = Picture.find(params[:id])
   end
+
   def new
     @picture = Picture.new
   end
+
   def create
     @picture = Picture.new
 
