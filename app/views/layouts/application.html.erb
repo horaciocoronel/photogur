@@ -8,8 +8,10 @@
 </head>
 <body>
   <%= link_to("New Picture", "/pictures/new") %>
+
   <p><%= link_to 'New User', new_users_path %></p>
   <p><%= link_to 'Login', new_sessions_path %></p>
+
 
 
   <% if current_user %>
@@ -19,6 +21,11 @@
   </p> Please log in to see pictures </p>
   <% end %>
 
+
+  <% if flash[:notice]  || flash[:alert] %>
+  <%= flash[:notice] %>
+  <%= flash[:alert] %>
+  <% end %>
 
 
 <%= yield %>

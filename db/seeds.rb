@@ -23,3 +23,9 @@ Picture.create(
   artist: 'John Wilhelm',
   url:    'http://bitmakerlabs.s3.amazonaws.com/photogur/girl.jpg'
 )
+
+Picture.create(
+  title:  'Bridges',
+  artist: 'Ponte Largo',
+  url:    'https://s.hswstatic.com/gif/how-bridges-work-1.jpg'
+)
