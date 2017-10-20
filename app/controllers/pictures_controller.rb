@@ -1,8 +1,7 @@
 class PicturesController < ApplicationController
 
   before_action :ensure_logged_in, except: [:show, :index]
-  before_action :load_picture, only: [:show, :edit, :update, :destroy]
-  before_action :ensure_user_owns_picture, only: [:edit, :update, :destroy]
+
 
   def index
     @pictures = Picture.all
@@ -17,15 +16,12 @@ class PicturesController < ApplicationController
   end
 
   def show
-  #  @picture = Picture.find(params[:id])
+    @picture = Picture.find(params[:id])
   end
 
   def new
     @picture = Picture.new
   end
-
-#In the create action in the PicturesController, before you call save on the new picture, make sure you are assigning the user_id attribute of the picture using current_user, in addition to its other attributes.
-
 
   def create
     @picture = Picture.new
@@ -42,12 +38,11 @@ class PicturesController < ApplicationController
       render :new
     end
   end
-
   def edit
-  #  @picture = Picture.find(params[:id])
+    @picture = Picture.find(params[:id])
   end
-
   def update
+    @picture = Picture.find(params[:id])
     @picture.title = params[:picture][:title]
     @picture.artist = params[:picture][:artist]
     @picture.url = params[:picture][:url]
@@ -60,14 +55,8 @@ class PicturesController < ApplicationController
   end
 
   def destroy
+    @picture = Picture.find(params[:id])
     @picture.destroy
     redirect_to "/pictures"
   end
-
-  def load_picture
-    @picture = Picture.find(params[:id])
-  end
-
-
-
 end
