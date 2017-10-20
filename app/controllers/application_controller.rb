@@ -6,13 +6,20 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    session[:user_id] && User.find(session[:user_id])
+     User.find_by(id: session[:user_id])
   end
 
   def ensure_logged_in
-    unless current_user
+    unless current_user.id
       flash[:alert] = "Please log in"
       redirect_to new_sessions_url
+    end
+  end
+
+  def ensure_user_owns_picture
+    if current_user != nil && (current_user.id != @picture.user_id)
+      flash[:alert] = "You're not allowed to edit this"
+      redirect_to root_path
     end
   end
 end
